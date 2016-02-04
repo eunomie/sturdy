@@ -1,5 +1,5 @@
 module Sturdy
-  class RepositoryError < RuntimeError
+  class NotARepository < RuntimeError
     # Error raised when not in a repository
     # @param [String] repo_path Path in which to search a repository
     def initialize(repo_path)

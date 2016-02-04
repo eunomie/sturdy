@@ -1,5 +1,5 @@
 module Sturdy
-  class EmptyRepositoryError < RuntimeError
+  class EmptyRepository < RuntimeError
     # Error raised when the repository is empty
     # @param [String] repo_path Path in which to search a repository
     def initialize(repo_path)

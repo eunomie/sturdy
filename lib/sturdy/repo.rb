@@ -1,4 +1,6 @@
 require 'rugged'
+require 'sturdy/not_a_repository'
+require 'sturdy/empty_repository'
 
 module Sturdy
   class Repo
@@ -9,9 +11,9 @@ module Sturdy
       begin
         @repo = Rugged::Repository.new @repo_path
       rescue Rugged::RepositoryError
-        raise Sturdy::RepositoryError.new @repo_path
+        raise Sturdy::NotARepository.new @repo_path
       end
-      raise Sturdy::EmptyRepositoryError.new @repo_path if @repo.empty?
+      raise Sturdy::EmptyRepository.new @repo_path if @repo.empty?
     end
 
     private
