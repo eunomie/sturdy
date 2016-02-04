@@ -16,8 +16,6 @@ module Sturdy
       raise Sturdy::EmptyRepository.new @repo_path if @repo.empty?
     end
 
-    private
-
     # Get log messages for a repository
     # @return [Array<String>] log messages
     def log_messages
