@@ -52,6 +52,18 @@ describe Sturdy::Repo do
         expect(messages[1]).to eq "2nd commit\n\nplop plop"
         expect(messages[2]).to eq "first commit\n\nplop plop"
       end
+
+      context 'using array#first_lines' do
+        it 'returns first lines of commit messages' do
+          sturdy = Sturdy::Repo.new repo_path
+          messages = sturdy.log_messages.first_lines
+
+          expect(messages.size).to eq 3
+          expect(messages[0]).to eq "3rd commit"
+          expect(messages[1]).to eq "2nd commit"
+          expect(messages[2]).to eq "first commit"
+        end
+      end
     end
   end
 end
